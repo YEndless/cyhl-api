@@ -3,10 +3,7 @@ package com.cy.hl.entity;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
@@ -23,7 +20,7 @@ import java.sql.Timestamp;
 @Table(name = "article")
 public class Article{
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @ApiModelProperty(value = "id", required = true)
     private int id ;//主键
 
@@ -42,7 +39,8 @@ public class Article{
     @ApiModelProperty(value = "类型", required = true)
     private int categoryId ;//分类
 
-    private Timestamp sendTime ;//发布时间
+    private Timestamp sendTime ;//发布时
+    // 间
 
     private int userId ;//作者id
 

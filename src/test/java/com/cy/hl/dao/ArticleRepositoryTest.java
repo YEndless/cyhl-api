@@ -32,4 +32,5 @@ public class ArticleRepositoryTest {
 
         articleRepository.save(article);
     }
+
 }

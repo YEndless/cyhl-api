@@ -3,10 +3,7 @@ package com.cy.hl.entity;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Data
 @Entity
@@ -26,4 +23,5 @@ public class Likes {
     private int userId ;//点赞用户id
 
     private int status ;//点赞状态0 取消 1 有效
+
 }

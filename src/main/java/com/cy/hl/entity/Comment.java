@@ -1,16 +1,12 @@
 package com.cy.hl.entity;
 import lombok.Data;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
-import java.io.Serializable;
 import java.sql.Timestamp;
 import java.util.List;
-/**
- * 评论实体
- * @author 言曌
- * @date 2018/3/19 下午9:54
- */
+
 @Entity
 @Data
 public class Comment {

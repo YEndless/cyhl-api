@@ -23,10 +23,27 @@ public class ArticleController {
         return articleService.get(id) ;
     }
 
-//    @PostMapping("/send")
-//    public String aUpload(@RequestBody  Article article) {
-//        articleService.save(article) ;
-//        return null ;
+    @RequestMapping("/save")
+    public Article save(Article article){
+        return articleService.save(article) ;
+    }
+
+    @RequestMapping (value = "/delete1",method = RequestMethod.POST)
+    public void delete(@RequestParam Integer id){
+        articleService.delete(id);
+    }
+    @RequestMapping (value = "/delete",method = RequestMethod.POST)
+    public void delete(@RequestBody Article article){
+        articleService.delete(article.getId());
+    }
+
+//    @GetMapping("/delete1")
+//    public void delete1{
+//        articleService.delete();
 //    }
 
+    @GetMapping("/deleteByUId")
+    public void deleteByUserId(int userId){
+        articleService.deleteByUId(userId);
+    }
 }

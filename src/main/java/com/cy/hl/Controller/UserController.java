@@ -1,5 +1,6 @@
 package com.cy.hl.Controller;
 
+import com.cy.hl.Service.ArticleService;
 import com.cy.hl.Service.UserService;
 import com.cy.hl.entity.LoginUser;
 import com.cy.hl.entity.User;
@@ -15,6 +16,8 @@ import java.util.List;
 public class UserController {
     @Resource
     private UserService userService;
+    @Resource
+    private ArticleService articleService ;
 
     @GetMapping("/all")
     public List<User>findAll( ){
@@ -31,4 +34,12 @@ public class UserController {
         System.out.println(loginUser);
         return userService.userLogin(loginUser);
     }
+
+    @GetMapping("/delete")
+    public void delete(int userId ){
+        articleService.deleteByUId(userId);
+        userService.delete(userId);
+    }
+
+
 }

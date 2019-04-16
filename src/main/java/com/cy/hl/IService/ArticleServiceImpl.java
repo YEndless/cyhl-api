@@ -19,19 +19,40 @@ public class ArticleServiceImpl implements ArticleService {
     public List<Article> findAll() {
         return articleRepository.findAll();
     }
+//    @Override
+//    public Article getOne (int id) {
+//        return articleRepository.getOne(id);
+//    }
 
-    @Override
-    public Article getOne (int id) {
-        return articleRepository.getOne(id);
-    }
 
     @Override
     public Article save(Article article) {
-        return articleRepository.saveAndFlush(article);
+        return articleRepository.save(article);
     }
 
     @Override
     public Article get(int id) {
         return articleRepository.findById(id).get();
     }
+
+    @Override
+    public void delete(int id) {
+        articleRepository.deleteById(id);
+    }
+
+    @Override
+    public void deleteByUId(int userId) {
+        articleRepository.deleteByUId(userId);
+    }
+
+    @Override
+    public List<Article> getAllArticle(int userId) {
+        return articleRepository.findByUserId(userId);
+    }
+
+//    @Override
+//    public Article getByUserId() {
+//        return articleRepository.f;
+//    }
+
 }

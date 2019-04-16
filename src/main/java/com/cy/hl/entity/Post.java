@@ -7,10 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
 import java.util.List;
-/**
- * @author 言曌
- * @date 2018/3/19 下午9:54
- */
+
 @Entity
 @Data
 public class Post{

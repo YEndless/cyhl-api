@@ -12,8 +12,8 @@ public interface UserService {
      * @return
      */
     List<User> findAll();
-
     User findById(int id) ;
-
     ResponseUtil userLogin(LoginUser loginUser);
+    void delete(int id) ;
+    void deleteUserId( int userId) ;
 }
