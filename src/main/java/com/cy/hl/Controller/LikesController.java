@@ -13,7 +13,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/likes")
-@CrossOrigin("http://localhost:81")
+@CrossOrigin
 public class LikesController {
 
     @Resource

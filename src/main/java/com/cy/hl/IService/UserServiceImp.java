@@ -26,6 +26,11 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
+    public User save(User user) {
+        return userRepository.save(user);
+    }
+
+    @Override
     public ResponseUtil userLogin(LoginUser loginUser) {
         User user = userRepository.findUserByEmail(loginUser.getEmail());
         //邮箱有效

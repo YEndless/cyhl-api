@@ -13,6 +13,7 @@ public interface UserService {
      */
     List<User> findAll();
     User findById(int id) ;
+    User save(User user) ;
     ResponseUtil userLogin(LoginUser loginUser);
     void delete(int id) ;
     void deleteUserId( int userId) ;

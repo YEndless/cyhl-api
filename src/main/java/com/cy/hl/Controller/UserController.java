@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/user")
-@CrossOrigin("http://localhost:81")
+@CrossOrigin
 public class UserController {
     @Resource
     private UserService userService;
@@ -35,11 +35,22 @@ public class UserController {
         return userService.userLogin(loginUser);
     }
 
-    @GetMapping("/delete")
-    public void delete(int userId ){
-        articleService.deleteByUId(userId);
-        userService.delete(userId);
+    @RequestMapping (value = "/delete1",method = RequestMethod.DELETE)
+    public void delete(@RequestParam int id ){
+//        articleService.deleteByUId(userId);
+        userService.delete(id);
     }
 
-
+    @RequestMapping (value = "/delete",method = RequestMethod.POST)
+    public void delete(@RequestBody User user){
+        articleService.delete(user.getId());
+    }
+//    @RequestMapping (value = "/delete1",method = RequestMethod.POST)
+//    public void delete(@RequestParam Integer id){
+//        articleService.delete(id);
+//    }
+    @RequestMapping("/save")
+    public User save(User user){
+        return userService.save(user);
+    }
 }

@@ -9,7 +9,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping(value = "/article")
-@CrossOrigin("http://localhost:81")
+@CrossOrigin
 public class ArticleController {
     @Resource
     private ArticleService articleService ;
@@ -28,7 +28,7 @@ public class ArticleController {
         return articleService.save(article) ;
     }
 
-    @RequestMapping (value = "/delete1",method = RequestMethod.POST)
+    @RequestMapping (value = "/delete1",method = RequestMethod.DELETE)
     public void delete(@RequestParam Integer id){
         articleService.delete(id);
     }

@@ -6,6 +6,8 @@ import com.cy.hl.entity.Article;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -27,6 +29,10 @@ public class ArticleServiceImpl implements ArticleService {
 
     @Override
     public Article save(Article article) {
+        Date date=new Date();
+        SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        df.format(date);
+        article.setSendTime(date);
         return articleRepository.save(article);
     }
 
