@@ -17,6 +17,6 @@ public class ReplyRepositoryTest {
     @Test
     public void aaa(){
         Reply reply=new Reply();
-        System.out.println(replyService.save(reply));
+//        System.out.println(replyService.save(reply));
     }
 }

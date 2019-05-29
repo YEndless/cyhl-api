@@ -8,6 +8,6 @@ public interface LikesService {
     List<Likes> findAll();
     List<Likes> findByAticleidAndUserId(int article , int userid) ;
     void delete(Integer id ) ;
-
-   Likes save (Likes likes) ;
+    Likes save (Likes likes) ;
+    void zan(int id ) ;
 }

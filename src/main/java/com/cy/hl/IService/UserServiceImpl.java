@@ -4,14 +4,14 @@ import com.cy.hl.Service.UserService;
 import com.cy.hl.dao.UserRepository;
 import com.cy.hl.entity.LoginUser;
 import com.cy.hl.entity.User;
-import com.cy.hl.vo.ResponseUtil;
+import com.cy.hl.util.ResponseUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
 
 @Service
-public class UserServiceImp implements UserService{
+public class UserServiceImpl implements UserService{
     @Resource
     private UserRepository userRepository;
 
@@ -54,6 +54,16 @@ public class UserServiceImp implements UserService{
     @Override
     public void deleteUserId(int userId) {
         userRepository.deleteById(userId);
+    }
+
+    @Override
+    public void update(String p, int id) {
+        userRepository.update(p, id);
+    }
+
+    @Override
+    public void updateAvatar(String avatar, int id) {
+        userRepository.updateAvatar(avatar,id);
     }
 
 }

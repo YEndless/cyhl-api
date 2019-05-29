@@ -2,6 +2,8 @@ package com.cy.hl.IService;
 
 import com.cy.hl.Service.ArticleService;
 import com.cy.hl.dao.ArticleRepository;
+import com.cy.hl.dao.CommentRepository;
+import com.cy.hl.dao.ReplyRepository;
 import com.cy.hl.entity.Article;
 import org.springframework.stereotype.Service;
 
@@ -12,21 +14,17 @@ import java.util.List;
 
 @Service
 public class ArticleServiceImpl implements ArticleService {
-//    @Autowired
     @Resource
     ArticleRepository articleRepository ;
-
+    @Resource
+    CommentRepository commentRepository ;
+    @Resource
+    ReplyRepository replyRepository ;
 
     @Override
     public List<Article> findAll() {
-        return articleRepository.findAll();
+        return articleRepository.findAllDesc();
     }
-//    @Override
-//    public Article getOne (int id) {
-//        return articleRepository.getOne(id);
-//    }
-
-
     @Override
     public Article save(Article article) {
         Date date=new Date();
@@ -56,9 +54,16 @@ public class ArticleServiceImpl implements ArticleService {
         return articleRepository.findByUserId(userId);
     }
 
-//    @Override
-//    public Article getByUserId() {
-//        return articleRepository.f;
-//    }
+    @Override
+    public void search(int id) {
+        articleRepository.search(id);
+    }
+
+    @Override
+    public int zan(int count, int id) {
+        count ++ ;
+        return  articleRepository.update(count,id) ;
+    }
+
 
 }

@@ -18,8 +18,16 @@ public interface ArticleRepository extends JpaRepository<Article,Integer>{
 
     @Transactional
     @Modifying
-    @Query(value="SELECT * FROM article a LEFT  JOIN user u ON a.user_id = u.id", nativeQuery=true)
+    @Query(value="SELECT nick_name FROM article a LEFT  JOIN user u ON a.user_id = u.id", nativeQuery=true)
     void search(int uid);
 
     List<Article> findByUserId(int userId) ;
+
+    @Query("select a FROM Article  a ORDER BY a.id DESC ")
+    List<Article> findAllDesc();
+
+    @Transactional
+    @Modifying
+    @Query("update Article as a set a.count = ?1 where a.id=?2")
+    int update(int count, int id);
 }

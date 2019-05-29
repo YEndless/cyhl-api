@@ -29,6 +29,11 @@ public class LikesServiceImpl implements LikesService {
 
     @Override
     public Likes save(Likes likes) {
-        return likesRepository.saveAndFlush(likes);
+        return likesRepository.save(likes);
+    }
+
+    @Override
+    public void zan(int id) {
+
     }
 }

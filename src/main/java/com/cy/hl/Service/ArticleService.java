@@ -6,7 +6,7 @@ import java.util.List;
 
 public interface ArticleService {
     List<Article> findAll() ;
-//    Article getOne(int id);
+
     Article save(Article article) ;
 
     Article get(int id) ;
@@ -17,5 +17,7 @@ public interface ArticleService {
 
     List<Article> getAllArticle(int userId) ;
 
-//    Article getByUserId() ;
+    void search( int id) ;
+
+    int zan(int count , int id) ;
 }

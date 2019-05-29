@@ -1,6 +1,6 @@
 package com.cy.hl.dao;
 
-import com.cy.hl.entity.Likes;
+import com.cy.hl.entity.Comment;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -10,11 +10,12 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public interface LikesRepository extends JpaRepository<Likes,Integer>{
-    List<Likes> findByAticleidAndUserId(int article , int userid);
+public interface CommentRepository extends JpaRepository<Comment , Integer>{
+    @Query("select c FROM Comment  c ORDER BY c.id DESC ")
+    List<Comment> findAllDesc();
 
     @Transactional
     @Modifying
-    @Query("update Likes as l set l.status = ?1 where l.id=?2")
-    void update(String password, int id);
+    @Query("update Comment as c set c.zan = ?1 where c.commentId=?2")
+    int zan(int zan, int commentId);
 }

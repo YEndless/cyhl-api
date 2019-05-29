@@ -6,15 +6,6 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.Date;
 
-/**
- * 人员信息表
- * 注解：@ApiModel 和 @ApiModelProperty 用于在通过对象接收参数时
- * 在API文档中显示字段的说明
- * 注解：@DateTimeFormat 和 @JsonFormat
- * 用于在接收和返回日期格式时将其格式化
- * 实体类对应的数据表为：
- */
-
 @Data
 @Entity
 @Table(name = "article")

@@ -5,7 +5,6 @@ import com.cy.hl.entity.Reply;
 import java.util.List;
 
 public interface ReplyService {
-    Reply save(Reply reply) ;
-
-    List<Reply> findAll();
+    Reply saveReply(Reply reply) ;
+    List<Reply> findByReply() ;
 }
